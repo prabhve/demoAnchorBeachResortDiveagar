@@ -1,0 +1,6 @@
+{
+  "name": "Anchor Beach Resort Diveagar",
+  "description": "Official website for Anchor Beach Resort in Diveagar, Maharashtra. Luxury beachfront rooms, authentic Konkani dining, swimming pool, and direct beach access.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
