@@ -55,21 +55,23 @@ export const GallerySection: React.FC = () => {
             A glimpse into the unhurried life at Anchor Beach Resort and the surrounding Konkan coastline.
           </p>
 
-          {/* Minimalist Filter Tabs */}
-          <div className="mt-8 flex flex-wrap justify-center gap-2">
-            {categories.map((cat) => (
-              <button
-                key={cat.id}
-                onClick={() => setActiveCategory(cat.id)}
-                className={`px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-200 cursor-pointer ${
-                  activeCategory === cat.id
-                    ? 'bg-stone-900 text-white shadow-sm'
-                    : 'bg-stone-100 text-stone-600 hover:text-stone-900'
-                }`}
-              >
-                {cat.label}
-              </button>
-            ))}
+          {/* Minimalist Filter Tabs (Scrollable on Mobile) */}
+          <div className="mt-6 sm:mt-8 w-full overflow-x-auto no-scrollbar pb-1">
+            <div className="flex justify-start sm:justify-center gap-2 min-w-max px-1">
+              {categories.map((cat) => (
+                <button
+                  key={cat.id}
+                  onClick={() => setActiveCategory(cat.id)}
+                  className={`px-4 py-2 rounded-full text-xs font-medium transition-all duration-200 cursor-pointer select-none ${
+                    activeCategory === cat.id
+                      ? 'bg-stone-900 text-white shadow-sm font-semibold'
+                      : 'bg-stone-100 text-stone-600 hover:text-stone-900'
+                  }`}
+                >
+                  {cat.label}
+                </button>
+              ))}
+            </div>
           </div>
         </motion.div>
 

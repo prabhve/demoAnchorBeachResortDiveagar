@@ -41,31 +41,33 @@ export const ResortExperienceSection: React.FC = () => {
             From the aroma of heirloom Konkani spice blends to refreshing dips in the pool and golden sunsets on Diveagar Beach.
           </p>
 
-          {/* Elegant Experience Switcher Tabs */}
-          <div className="mt-8 inline-flex p-1 bg-stone-200/60 rounded-full max-w-full overflow-x-auto">
-            {[
-              { id: 'dining', label: 'Coastal Dining', icon: Utensils },
-              { id: 'pool', label: 'Pool & Lawns', icon: Waves },
-              { id: 'activities', label: 'Beach & Sports', icon: Compass },
-              { id: 'comfort', label: 'Resort Comforts', icon: ShieldCheck },
-            ].map((tab) => {
-              const Icon = tab.icon;
-              const isActive = activeTab === tab.id;
-              return (
-                <button
-                  key={tab.id}
-                  onClick={() => setActiveTab(tab.id as any)}
-                  className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-xs sm:text-sm font-medium transition-all duration-200 whitespace-nowrap cursor-pointer ${
-                    isActive
-                      ? 'bg-white text-stone-900 shadow-sm font-semibold'
-                      : 'text-stone-600 hover:text-stone-900'
-                  }`}
-                >
-                  <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-amber-600' : 'text-stone-400'}`} />
-                  <span>{tab.label}</span>
-                </button>
-              );
-            })}
+          {/* Elegant Experience Switcher Tabs (Fluid Horizontal Scroll on Mobile) */}
+          <div className="mt-6 sm:mt-8 w-full max-w-full overflow-x-auto no-scrollbar pb-2">
+            <div className="inline-flex p-1 bg-stone-200/70 rounded-full min-w-max mx-auto border border-stone-300/40 shadow-inner">
+              {[
+                { id: 'dining', label: 'Coastal Dining', icon: Utensils },
+                { id: 'pool', label: 'Pool & Lawns', icon: Waves },
+                { id: 'activities', label: 'Beach & Sports', icon: Compass },
+                { id: 'comfort', label: 'Resort Comforts', icon: ShieldCheck },
+              ].map((tab) => {
+                const Icon = tab.icon;
+                const isActive = activeTab === tab.id;
+                return (
+                  <button
+                    key={tab.id}
+                    onClick={() => setActiveTab(tab.id as any)}
+                    className={`flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-medium transition-all duration-200 whitespace-nowrap cursor-pointer select-none ${
+                      isActive
+                        ? 'bg-white text-stone-900 shadow-sm font-bold'
+                        : 'text-stone-600 hover:text-stone-900'
+                    }`}
+                  >
+                    <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-amber-600' : 'text-stone-400'}`} />
+                    <span>{tab.label}</span>
+                  </button>
+                );
+              })}
+            </div>
           </div>
         </motion.div>
 

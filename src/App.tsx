@@ -11,6 +11,7 @@ import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { BookingModal } from './components/BookingModal';
 import { ResortConcierge } from './components/ResortConcierge';
+import { MobileBottomBar } from './components/MobileBottomBar';
 
 export default function App() {
   const [activeSection, setActiveSection] = useState<string>('home');
@@ -121,6 +122,11 @@ export default function App() {
       {/* Discreet 24/7 Resort Concierge & WhatsApp Widget */}
       <ResortConcierge
         onOpenBooking={handleOpenBooking}
+      />
+
+      {/* Sticky Quick-Action Mobile Bottom Bar (Call, WhatsApp, Book Suite) */}
+      <MobileBottomBar
+        onOpenBooking={() => handleOpenBooking()}
       />
     </div>
   );

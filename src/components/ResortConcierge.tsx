@@ -79,13 +79,13 @@ export const ResortConcierge: React.FC<ResortConciergeProps> = ({ onOpenBooking 
 
   return (
     <>
-      {/* Floating Action Button (Minimalist & Unobtrusive) */}
-      <div className="fixed bottom-6 right-6 z-40 flex items-center gap-3">
+      {/* Floating Action Button (Concierge & WhatsApp - positioned above mobile bottom bar) */}
+      <div className="fixed bottom-20 md:bottom-6 right-3 sm:right-6 z-30 flex items-center gap-2 sm:gap-3">
         <a
           href="https://wa.me/917773999979?text=Hello%20Anchor%20Beach%20Resort,%20I%20have%20an%20inquiry%20regarding%20a%20stay"
           target="_blank"
           rel="noopener noreferrer"
-          className="w-11 h-11 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white shadow-lg flex items-center justify-center transition-transform hover:scale-105"
+          className="hidden sm:flex w-11 h-11 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white shadow-lg items-center justify-center transition-transform hover:scale-105"
           title="Chat on WhatsApp"
         >
           <MessageCircle className="w-5 h-5 fill-white" />
@@ -93,16 +93,16 @@ export const ResortConcierge: React.FC<ResortConciergeProps> = ({ onOpenBooking 
 
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="px-4 py-2.5 rounded-full bg-[#0a1826] hover:bg-stone-800 text-white shadow-lg flex items-center gap-2 text-xs font-medium tracking-wide transition-transform hover:scale-105 border border-white/10"
+          className="px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-full bg-[#0a1826]/95 backdrop-blur-md hover:bg-stone-800 text-white shadow-xl flex items-center gap-1.5 sm:gap-2 text-xs font-medium tracking-wide transition-transform hover:scale-105 border border-white/15"
         >
           <Bot className="w-4 h-4 text-amber-400" />
-          <span className="hidden sm:inline">Concierge</span>
+          <span className="text-[11px] sm:text-xs">AI Assistant</span>
         </button>
       </div>
 
       {/* Concierge Dialog Window */}
       {isOpen && (
-        <div className="fixed bottom-20 right-4 sm:right-6 z-50 w-[92vw] sm:w-88 max-h-[500px] bg-white rounded-2xl shadow-2xl border border-stone-200 flex flex-col overflow-hidden">
+        <div className="fixed bottom-32 md:bottom-20 right-3 sm:right-6 z-50 w-[calc(100vw-24px)] sm:w-88 max-h-[500px] bg-white rounded-2xl shadow-2xl border border-stone-200 flex flex-col overflow-hidden">
           {/* Header */}
           <div className="bg-[#0a1826] text-white px-4 py-3.5 flex items-center justify-between">
             <div className="flex items-center gap-2">
